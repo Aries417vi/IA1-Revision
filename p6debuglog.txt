@@ -1,0 +1,78 @@
+ gcc -g p6final.c;./a.out
+Enter a word: run
+Enter a word: world
+world is greater than run
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x892: file p6final.c, line 38.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p6final.c:38
+38  {
+(gdb) n
+42    input(a, b);
+(gdb) s
+input (a=0x7ffc4633faa0 "\001", b=0x7ffc4633fac0 "") at p6final.c:5
+5       printf("Enter a word: ");
+(gdb) n
+6       scanf("%s", a);
+(gdb) n
+Enter a word: run 
+8       printf("Enter a word: ");
+(gdb) n
+9       scanf("%s", b);
+(gdb) n
+Enter a word: world
+10  }
+(gdb) n
+main () at p6final.c:43
+43    ans = compare(a, b);
+(gdb) s
+compare (a=0x7ffc4633faa0 "run", b=0x7ffc4633fac0 "world") at p6final.c:14
+14      int flag=0, i=0; 
+(gdb) n
+16      for(i=0; a[i] && (a[i] == b[i]);i++);
+(gdb) n
+17          int ind_dif = a[i] - b[i] ;
+(gdb) n
+20      return ind_dif;
+(gdb) n
+21  }
+(gdb) n
+main () at p6final.c:44
+44    output(a, b, ans);
+(gdb) s
+output (a=0x7ffc4633faa0 "run", b=0x7ffc4633fac0 "world", ans=-5)
+    at p6final.c:27
+27      if(ans < 0)
+(gdb) n
+28        printf("%s is greater than %s\n", b, a);
+(gdb) n
+world is greater than run
+35  } 
+(gdb) n
+main () at p6final.c:46
+46    return 0;
+(gdb) n
+47  }(gdb) c
+Continuing.
+[Inferior 1 (process 528) exited normally]
+(gdb) q
+ 

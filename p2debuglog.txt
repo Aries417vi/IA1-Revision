@@ -1,0 +1,142 @@
+ gcc -g p1final.c;./a.out
+enter two numbers:3
+5
+the sum of 3+5 is 8 
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x7b1: file p1final.c, line 16.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1final.c:16
+16  {
+(gdb) n
+18    input(&a,&b);
+(gdb) s
+input (pa=0x7ffe5e355a0c, pb=0x7ffe5e355a10) at p1final.c:4
+4     printf("enter two numbers:");
+(gdb) n
+5     scanf("%d%d",pa,pb);
+(gdb) n
+enter two numbers:4
+5
+6   }
+(gdb) n
+main () at p1final.c:19
+ gcc -g p2final.c;./a.out
+Enter number = 3
+Enter number = 4
+Enter number = 2
+Largest no = 4
+The Largest Number among 3, 4, 2 is 4 
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x804: file p2final.c, line 35.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p2final.c:35
+35      int a = input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5       printf("Enter number = ");
+(gdb) n
+6       scanf("%d", &x);
+(gdb) n
+Enter number = 3
+7       return x;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:36
+36      int b = input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5       printf("Enter number = ");
+(gdb) n
+6       scanf("%d", &x);
+(gdb) n
+Enter number = 5
+7       return x;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:37
+37      int c = input();
+(gdb) s
+input () at p2final.c:3
+3   {
+(gdb) n
+5       printf("Enter number = ");
+(gdb) n
+6       scanf("%d", &x);
+(gdb) n
+Enter number = 6
+7       return x;
+(gdb) n
+8   }
+(gdb) n
+main () at p2final.c:39
+39      int largestNumber = largest(a,b,c);
+(gdb) s
+largest (x=3, y=5, z=6) at p2final.c:14
+14      if (x >= y && x >= z)
+(gdb) n
+17      if ( y >= z)
+(gdb) n
+20      if (z >= x && z >= y)
+(gdb) n
+21          large = z;
+(gdb) n
+23      return large;
+(gdb) n
+24  }
+(gdb) n
+main () at p2final.c:41
+41      printf("Largest no = %d\n", largestNumber);
+(gdb) n
+Largest no = 6
+43      output(a,b,c,largestNumber);
+(gdb) n
+45      return 0;
+(gdb) n
+47  }(gdb) c
+Continuing.
+The Largest Number among 3, 5, 6 is 6[Inferior 1 (process 180) exited normally]
+(gdb) q
